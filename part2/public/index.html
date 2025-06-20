@@ -43,7 +43,7 @@
         return {
           message: 'Welcome to the Dog Walking Service!',
           username: '',
-          password: '',
+          password_hash: '',
           error: '',
           loggedIn: false
         };
@@ -56,7 +56,7 @@
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 username: this.username,
-                password: this.password
+                password_hash: this.password_hash
               })
             });
             if (!res.ok) {
