@@ -77,6 +77,9 @@ app.get("/api/walkrequests/open", async (req, res) => {
       }
     });
 
+// Route to avg rating and completed walks per walker
+app.get("/api/walkers/summary", async (req, res) => {
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
