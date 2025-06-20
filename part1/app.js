@@ -41,7 +41,7 @@ let db;
   }
 })();
 
-// Route to return all dogs
+// Route to list every dog with size and owner username
 app.get("/api/dogs", async (req, res) => {
   try {
     const [rows] = await pool.query(
@@ -49,7 +49,7 @@ app.get("/api/dogs", async (req, res) => {
                 d.size,
                 u.username AS owner_username
          FROM Dogs d
-         JOIN Users u ON d.owner_id = u.user_id`,
+         JOIN Users u ON d.owner_id = u.user_id`
       );
     res.json(rows);
   } catch (err) {
