@@ -46,21 +46,17 @@ router.post('/login', async (req, res) => {
     `, [email, password]);
 
     if (rows.length === 0) {
-      +      // No match – wrong e-mail / password
-      +      return res.status(401).json({ error: 'Invalid credentials' });
-      +    }
-      +
-      +    /* ----------------------------------------------------------
-      +       Persist minimal user info in the session so subsequent
-      +       requests can identify the user without re-logging in.
-      +    -----------------------------------------------------------*/
-      +    req.session.user = {
-      +      id   : rows[0].user_id,
-      +      name : rows[0].username,
-      +      role : rows[0].role
-      +    };
-      +
-      +    res.json({ message: 'Login successful', user: req.session.user });
+      // No match – wrong e-mail / password
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    req.session.user = {
+      id   : rows[0].user_id,
+      name : rows[0].username,
+      role : rows[0].role
+    };
+
+          res.json({ message: 'Login successful', user: req.session.user });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
   }
