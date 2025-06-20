@@ -74,6 +74,20 @@
           }
         }
 
+        async function logout() {
+          try {
+            await fetch('/api/users/logout', { method: 'POST' });
+
+            document.cookie = 'connect.sid=; Max-Age=0; path=/;';
+            localStorage.clear();
+            sessionStorage.clear();
+
+            window.location.href = 'index.html';
+          } catch (err) {
+            alert('Could not log out, please try again.');
+          }
+        }
+
         onMounted(() => {
           loadWalkRequests();
         });
