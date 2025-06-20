@@ -77,8 +77,24 @@ app.get("/api/walkrequests/open", async (req, res) => {
       }
     });
 
-// Route to avg rating and completed walks per walker
+// Route for avg rating and completed walks per walker
 app.get("/api/walkers/summary", async (req, res) => {
+    try {
+        const [rows] = await pool.query(
+          `SELECT u.username                         AS walker_username,
+                  COUNT(r.rating_id)                 AS total_ratings,
+                  AVG(r.rating)                      AS average_rating,
+                  COUNT(r.rating_id)                 AS completed_walks
+           FROM Users u
+           LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
+           WHERE u.role = 'walker'
+           GROUP BY u.user_id`,
+        );
+        res.json(rows);
+      } catch (err) {
+        res.status(500).json({ error: "Failed to fetch walker summary." });
+      }
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 
