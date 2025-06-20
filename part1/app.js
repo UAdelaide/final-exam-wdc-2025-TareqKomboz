@@ -62,14 +62,14 @@ app.get("/api/walkrequests/open", async (req, res) => {
     try {
         const [rows] = await pool.query(
             `SELECT w.request_id,
-                d.name   AS dog_name,
-                w.requested_time,
-                w.duration_minutes,
-                w.location,
-                u.username AS owner_username
+                    d.name   AS dog_name,
+                    w.requested_time,
+                    w.duration_minutes,
+                    w.location,
+                    u.username AS owner_username
             FROM WalkRequests w
-            JOIN Dogs d   ON w.dog_id = d.dog_id
-            JOIN Users u  ON d.owner_id = u.user_id
+            JOIN Dogs d ON w.dog_id = d.dog_id
+            JOIN Users u ON d.owner_id = u.user_id
             WHERE w.status = 'open'`
         );
       } catch (err) {
