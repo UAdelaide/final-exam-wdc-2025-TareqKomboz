@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(
     session({
-        secret: process.env.SESSION_SECRET || '',
+        secret: process.env.SESSION_SECRET || 'my_secret123',
         resave: false,
         saveUninitialized : false,
-        cookie: { secure: false } // set true if HTTPS
+        cookie: { secure: false }
     })
 );
 
