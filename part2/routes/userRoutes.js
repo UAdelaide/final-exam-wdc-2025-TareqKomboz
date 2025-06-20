@@ -44,10 +44,12 @@ router.post('/login', async (req, res) => {
   console.log(password_hash);
 
   try {
-    const [rows] = await db.query(`
-      SELECT user_id, username, role FROM Users
-      WHERE username = ? AND password_hash = ?
-    `, [username, password_hash]);
+    //const [rows] = await db.query(`
+    //  SELECT user_id, username, role FROM Users
+    //  WHERE username = ? AND password_hash = ?
+    //`, [username, password_hash]);
+
+
 
     if (rows.length === 0) {
       // No match means wrong e-mail / password_hash
