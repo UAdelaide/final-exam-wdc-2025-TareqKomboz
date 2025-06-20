@@ -67,10 +67,10 @@
         } else if (user.role === 'walker') {
           window.location.href = 'walker-dashboard.html';
         } else {
-          this.error = 'Unknown role – contact admin.';
+          this.error = 'Unknown role, contact admin.';
         }
       } catch (e) {
-        this.error = 'Server unreachable – please try again.';
+        this.error = 'Server unreachable, please try again.';
       }
 
     }).mount('#app');
