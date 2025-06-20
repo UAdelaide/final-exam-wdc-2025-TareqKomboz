@@ -48,8 +48,8 @@
             const res = await fetch('/api/users/login', {
               method : 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body   : JSON.stringify({
-                email   : this.email,
+              body: JSON.stringify({
+                email: this.email,
                 password: this.password
               })
             });
@@ -67,7 +67,7 @@
           } else if (user.role === 'walker') {
             window.location.href = 'walker-dashboard.html';
           } else {
-            this.error = 'Unknown role, contact admin.';
+            this.error = 'Unknown role.';
           }
         } catch (e) {
           this.error = 'Server unreachable, please try again.';
