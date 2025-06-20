@@ -41,11 +41,17 @@ let db;
   }
 })();
 
-// Route to return books as JSON
+// Route to return all dogs
 app.get("/api/dogs", async (req, res) => {
   try {
-    const [books] = await db.execute('SELECT * FROM books');
-    res.json(books);
+    const [rows] = await pool.query(
+        `SELECT d.name AS dog_name,
+                d.size,
+                u.username AS owner_username
+         FROM Dogs d
+         JOIN Users u ON d.owner_id = u.user_id`,
+      );
+    res.json(rows);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch books' });
   }
