@@ -62,7 +62,7 @@ app.get("/api/walkrequests/open", async (req, res) => {
     try {
         const [rows] = await pool.query(
             `SELECT w.request_id,
-                    d.name   AS dog_name,
+                    d.name AS dog_name,
                     w.requested_time,
                     w.duration_minutes,
                     w.location,
