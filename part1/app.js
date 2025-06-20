@@ -75,7 +75,7 @@ app.get("/api/walkrequests/open", async (req, res) => {
       } catch (err) {
         res.status(500).json({ error: "Failed to fetch walk requests." });
       }
-    });
+});
 
 // Route for avg rating and completed walks per walker
 app.get("/api/walkers/summary", async (req, res) => {
@@ -88,13 +88,13 @@ app.get("/api/walkers/summary", async (req, res) => {
             FROM Users u
             LEFT JOIN WalkRatings r ON u.user_id = r.walker_id
             WHERE u.role = 'walker'
-            GROUP BY u.user_id`,
+            GROUP BY u.user_id`
         );
         res.json(rows);
     } catch (err) {
         res.status(500).json({ error: "Failed to fetch walker summary." });
     }
-}
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
