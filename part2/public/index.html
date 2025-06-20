@@ -15,6 +15,7 @@
 
     <form @submit.prevent="login" v-if="!loggedIn">
       <div>
+        <input v-model="email" id="email" class="form-control" required>
       </div>
     </form>
 
