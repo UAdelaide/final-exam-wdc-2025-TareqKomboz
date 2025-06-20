@@ -42,7 +42,7 @@ let db;
 // Route to list every dog with size and owner username
 app.get("/api/dogs", async (req, res) => {
     try {
-        const [rows] = await pool.query(
+        const [rows] = await db.query(
             `SELECT d.name AS dog_name,
                     d.size,
                     u.username AS owner_username
@@ -58,7 +58,7 @@ app.get("/api/dogs", async (req, res) => {
 // Route to get all open walk requests with dog and owner username
 app.get("/api/walkrequests/open", async (req, res) => {
     try {
-        const [rows] = await pool.query(
+        const [rows] = await db.query(
             `SELECT w.request_id,
                     d.name AS dog_name,
                     w.requested_time,
@@ -78,7 +78,7 @@ app.get("/api/walkrequests/open", async (req, res) => {
 // Route for avg rating and completed walks per walker
 app.get("/api/walkers/summary", async (req, res) => {
     try {
-        const [rows] = await pool.query(
+        const [rows] = await db.query(
             `SELECT u.username         AS walker_username,
                     COUNT(r.rating_id) AS total_ratings,
                     AVG(r.rating)      AS average_rating,
