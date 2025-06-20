@@ -64,6 +64,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// POST /logout to destroy session and clear cookie
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) return res.status(500).json({ error: 'Logout failed' });
@@ -71,6 +72,5 @@ router.post('/logout', (req, res) => {
     res.json({ message: 'Logged out' });
   });
 });
-}
 
 module.exports = router;
