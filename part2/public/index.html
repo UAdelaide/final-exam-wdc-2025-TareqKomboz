@@ -15,13 +15,13 @@
 
     <form @submit.prevent="login" v-if="!loggedIn">
       <!-- username field -->
-      <div>
+      <div class="mb-3">
         <label for="username">Username</label>
         <input v-model="username" type="text" id="username" required>
       </div>
 
       <!-- password field -->
-      <div>
+      <div class="mb-3">
         <label for="password">Password</label>
         <input v-model="password" type="text" id="password" required>
       </div>
