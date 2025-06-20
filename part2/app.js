@@ -11,13 +11,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(
     session({
-      secret            : process.env.SESSION_SECRET || 'replace-me',
-      resave            : false,
-      saveUninitialized : false,
-      cookie            : { secure: false } // set true if HTTPS
+        secret: process.env.SESSION_SECRET || 'replace-me',
+        resave: false,
+        saveUninitialized : false,
+        cookie: { secure: false } // set true if HTTPS
     })
-  );
-  
+);
+
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
