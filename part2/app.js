@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(
     session({
-        secret: process.env.SESSION_SECRET || 'replace-me',
+        secret: process.env.SESSION_SECRET || '',
         resave: false,
         saveUninitialized : false,
         cookie: { secure: false } // set true if HTTPS
