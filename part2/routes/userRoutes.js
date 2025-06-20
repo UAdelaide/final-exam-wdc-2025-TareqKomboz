@@ -37,13 +37,8 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// POST login (dummy version)
+// POST login
 router.post('/login', async (req, res) => {
-
-  // for debugging
-  // let username = "test";
-  // let password_hash = "hashed111";
-
   const { username, password_hash } = req.body;
   console.log('[login] body:', username, password_hash);
 
