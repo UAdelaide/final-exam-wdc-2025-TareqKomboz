@@ -26,12 +26,11 @@
         <input v-model="password" type="password" id="password" required>
       </div>
 
+      <!-- error msg -->
       <p v-if="error">{{ error }}</p>
 
       <button type="submit">Login</button>
     </form>
-
-
   </div>
 
   <script>
