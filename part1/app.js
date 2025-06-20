@@ -57,7 +57,7 @@ app.get("/api/dogs", async (req, res) => {
   }
 });
 
-// all open walk requests with dog + owner username
+// Route to get all open walk requests with dog and owner username
 app.get("/api/walkrequests/open", async (req, res) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
