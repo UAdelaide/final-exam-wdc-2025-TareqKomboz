@@ -31,5 +31,26 @@
     <img :src="dogImage" class="dog-img" alt="Dog Image">
     <p>Beautiful Dog. Baad Gramer aornd speELLING</p>
     <button @click="fetchDog">Does NOthing!!!!</button>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+          data() {
+            return {
+              dogImage: '',
+            };
+          },
+          mounted() {
+            this.fetchDog();
+          },
+          methods: {
+            async fetchDog() {
+              try {
+              }catch (err) {
+            alert("DOG API FAILZ 😭");
+          }
+            }
+          }
+        }).mount('#app');
+      </script>
 </body>
 </html>
