@@ -39,9 +39,12 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
+
+  let username = "test";
+  let password_hash = "hashed111";
+
   const { username, password_hash } = req.body;
-  console.log(username);
-  // console.log(password_hash);
+  console.log('[login] body:', username, password_hash);
 
   try {
     //const [rows] = await db.query(`
@@ -49,8 +52,6 @@ router.post('/login', async (req, res) => {
     //  WHERE username = ? AND password_hash = ?
     //`, [username, password_hash]);
 
-    let username = "test";
-    let password_hash = "hashed111";
 
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
