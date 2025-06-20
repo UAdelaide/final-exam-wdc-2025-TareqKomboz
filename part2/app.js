@@ -13,7 +13,7 @@ app.use(
     session({
         secret: process.env.SESSION_SECRET || 'my_secret123',
         resave: false,
-        saveUninitialized : false,
+        saveUninitialized: false,
         cookie: { secure: false }
     })
 );
