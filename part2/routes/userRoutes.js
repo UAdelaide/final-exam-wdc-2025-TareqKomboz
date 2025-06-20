@@ -15,14 +15,14 @@ router.get('/', async (req, res) => {
 // POST a new user (simple signup)
 router.post('/register', async (req, res) => {
   const {
-     username, email, password, role
+     username, email, password_hash, role
   } = req.body;
 
   try {
     const [result] = await db.query(`
       INSERT INTO Users (username, email, password_hash, role)
       VALUES (?, ?, ?, ?)
-    `, [username, email, password, role]);
+    `, [username, email, password_hash, role]);
 
     res.status(201).json({ message: 'User registered', user_id: result.insertId });
   } catch (error) {
@@ -39,16 +39,16 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password_hash } = req.body;
 
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
-    `, [username, password]);
+    `, [username, password_hash]);
 
     if (rows.length === 0) {
-      // No match means wrong e-mail / password
+      // No match means wrong e-mail / password_hash
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
