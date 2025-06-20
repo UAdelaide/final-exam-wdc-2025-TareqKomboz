@@ -60,6 +60,7 @@ app.get("/api/dogs", async (req, res) => {
 // Route to get all open walk requests with dog and owner username
 app.get("/api/walkrequests/open", async (req, res) => {
     try {
+        const [rows] = await pool.query();
       } catch (err) {
         res.status(500).json({ error: "Failed to fetch walk requests." });
       }
