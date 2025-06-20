@@ -35,7 +35,11 @@
     createApp({
       data() {
         return {
-          message: 'Welcome to the Dog Walking Service!'
+          message: 'Welcome to the Dog Walking Service!',
+          email: '',          // ↙ → bound to the form
+          password: '',
+          error: '',
+          loggedIn: false
         };
       }
     }).mount('#app');
