@@ -17,7 +17,6 @@ router.get('/mine', async (req, res) => {
     }
 });
 
-
 // Route to list every dog with size and owner username
 router.get("/", async (req, res) => {
   try {
