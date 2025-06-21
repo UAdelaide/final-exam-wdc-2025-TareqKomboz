@@ -39,22 +39,7 @@ let db;
   }
 })();
 
-/* Return a list of all dogs with their size and owner's username.
-
-Sample Response:
-
-[
-  {
-    "dog_name": "Max",
-    "size": "medium",
-    "owner_username": "alice123"
-  },
-  {
-    "dog_name": "Bella",
-    "size": "small",
-    "owner_username": "carol123"
-  }
-] */
+// Return a list of all dogs with their size and owner's username.
 app.get("/api/dogs", async (req, res) => {
     try {
         const [rows] = await db.query(
@@ -70,8 +55,7 @@ app.get("/api/dogs", async (req, res) => {
     }
 });
 
-//
-// 
+// Return all open walk requests, including the dog name, requested time, location, and owner's username.
 app.get("/api/walkrequests/open", async (req, res) => {
     try {
         const [rows] = await db.query(
