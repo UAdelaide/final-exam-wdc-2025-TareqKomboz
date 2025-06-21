@@ -82,9 +82,14 @@
         async loadDogs() {
 
           try {
-      const res = await fetch('/api/dogs');
-      if (!res.ok) throw new Error();
-      const raw = await res.json();
+            const res = await fetch('/api/dogs');
+            if (!res.ok) throw new Error();
+            const raw = await res.json();
+
+
+          } catch (_) {
+            /* ignore silently on landing page */
+    }
         async login () {
           try {
             const res = await fetch('/api/users/login', {
