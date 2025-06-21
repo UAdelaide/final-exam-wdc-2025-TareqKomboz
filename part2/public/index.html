@@ -46,8 +46,12 @@
           <th scope="col">Size</th>
           <th scope="col">Owner&nbsp;ID</th>
         </tr>
-        
       </thead>
+      <tbody>
+        <tr v-for="d in dogs" :key="d.dog_id">
+          <td style="width:120px">
+            <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
+          </td>
     </table>
 
   <script>
