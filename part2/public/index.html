@@ -86,8 +86,11 @@
             if (!res.ok) throw new Error();
             const raw = await res.json();
 
-            const r = await fetch('https://dog.ceo/api/breeds/image/random');
-            const { message: url } = await r.json();
+            raw.map(async d => {
+              const r = await fetch('https://dog.ceo/api/breeds/image/random');
+              const { message: url } = await r.json();
+              return { ...d, photo: url };
+            })
 
           } catch (_) {
             /* ignore silently on landing page */
