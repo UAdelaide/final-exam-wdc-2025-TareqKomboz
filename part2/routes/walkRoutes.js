@@ -20,7 +20,9 @@ router.get('/', async (req, res) => {
 
 // POST a new walk request (from owner)
 router.post('/', async (req, res) => {
-  const { dog_id, requested_time, duration_minutes, location } = req.body;
+  const {
+    dog_id, requested_time, duration_minutes, location
+  } = req.body;
 
   try {
     const [result] = await db.query(`
@@ -53,7 +55,6 @@ router.post('/:id/apply', async (req, res) => {
 
     res.status(201).json({ message: 'Application submitted' });
   } catch (error) {
-    console.error('SQL Error:', error);
     res.status(500).json({ error: 'Failed to apply for walk' });
   }
 });
