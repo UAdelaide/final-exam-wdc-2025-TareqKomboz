@@ -22,8 +22,7 @@ router.get("/", async (req, res) => {
   try {
       const [rows] = await db.query(
           `SELECT *
-          FROM Dogs d
-          JOIN Users u ON d.owner_id = u.user_id`
+          FROM Dogs`
       );
       res.json(rows);
   } catch (err) {
