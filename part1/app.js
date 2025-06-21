@@ -76,7 +76,7 @@ app.get("/api/walkrequests/open", async (req, res) => {
       }
 });
 
-// Route for avg rating and completed walks per walker
+// Return a summary of each walker with their average rating and number of completed walks.
 app.get("/api/walkers/summary", async (req, res) => {
     try {
         const [rows] = await db.query(
