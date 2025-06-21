@@ -52,7 +52,13 @@
           <td style="width:120px">
             <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
           </td>
+          <td>{{ d.name }}</td>
+        <td>{{ d.size }}</td>
+        <td>{{ d.owner_id }}</td>
+      </tr>
+      </tbody>
     </table>
+  </div>
 
   <script>
     const { createApp } = Vue;
