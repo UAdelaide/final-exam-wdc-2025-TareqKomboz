@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// GET /api/dogs all dogs for the logged-in owner
+// GET /api/dogs/mine all dogs for the logged-in owner
 router.get('/mine', async (req, res) => {
     try {
       const [rows] = await db.execute(
@@ -19,7 +19,7 @@ router.get('/mine', async (req, res) => {
 
 
 // Route to list every dog with size and owner username
-app.get("", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
       const [rows] = await db.query(
           `SELECT d.name AS dog_name,
