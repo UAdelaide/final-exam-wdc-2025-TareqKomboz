@@ -39,7 +39,13 @@
   <!-- Dog gallery -->
   <div v-if="dogs.length" class="table-responsive mb-5">
     <table class="table table-striped align-middle">
-      <thead class="table-primary"></thead>
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">Name</th>
+          <th scope="col">Size</th>
+          <th scope="col">Owner&nbsp;ID</th>
+      </thead>
     </table>
 
   <script>
