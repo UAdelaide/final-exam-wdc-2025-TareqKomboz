@@ -55,6 +55,10 @@
           if (currentUserId.value !== null) return currentUserId.value;  // already cached
           try {
             const res = await fetch('/api/users/me');
+            if (!res.ok) throw new Error('Could not load user');
+            const u = await res.json();
+            currentUserId.value = u.id;
+            
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
