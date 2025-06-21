@@ -19,7 +19,7 @@ router.get('/mine', async (req, res) => {
 
 
 // Route to list every dog with size and owner username
-app.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
       const [rows] = await db.query(
           `SELECT d.name AS dog_name,
