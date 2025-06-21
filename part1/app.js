@@ -39,7 +39,7 @@ let db;
   }
 })();
 
-Return a list of all dogs with their size and owner's username.
+/* Return a list of all dogs with their size and owner's username.
 
 Sample Response:
 
@@ -54,7 +54,7 @@ Sample Response:
     "size": "small",
     "owner_username": "carol123"
   }
-]
+] */
 app.get("/api/dogs", async (req, res) => {
     try {
         const [rows] = await db.query(
