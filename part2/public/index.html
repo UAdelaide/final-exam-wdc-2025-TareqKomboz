@@ -34,31 +34,33 @@
 
     <!-- success -->
     <p v-else class="text-success text-center fs-5">Login successful, redirecting…</p>
+
+
+    <!-- Dog gallery -->
+    <div v-if="dogs.length" class="table-responsive mb-5">
+      <table class="table table-striped align-middle">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Owner&nbsp;ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="d in dogs" :key="d.dog_id">
+            <td style="width:120px">
+              <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
+            </td>
+            <td>{{ d.name }}</td>
+            <td>{{ d.size }}</td>
+            <td>{{ d.owner_id }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <!-- Dog gallery -->
-  <div v-if="dogs.length" class="table-responsive mb-5">
-    <table class="table table-striped align-middle">
-      <thead class="table-primary">
-        <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">Name</th>
-          <th scope="col">Size</th>
-          <th scope="col">Owner&nbsp;ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="d in dogs" :key="d.dog_id">
-          <td style="width:120px">
-            <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
-          </td>
-          <td>{{ d.name }}</td>
-          <td>{{ d.size }}</td>
-          <td>{{ d.owner_id }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
   <script>
     const { createApp } = Vue;
