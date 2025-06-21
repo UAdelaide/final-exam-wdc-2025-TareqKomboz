@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     `, [username, password_hash]);
 
     if (rows.length === 0) {
-      // No match means wrong e-mail / password_hash
+      // No match means wrong username / password_hash
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
