@@ -3,3 +3,19 @@ const router = express.Router();
 const db = require('../models/db');
 const auth = require('../middleware/auth'); // session check
 
+// GET /api/dogs all dogs for the logged-in owner
+router.get('/api/dogs', auth, async (req, res) => {
+    try {
+      const [rows] = await db.execute(
+        `SELECT dog_id, name
+           FROM Dogs
+          WHERE owner_id = ?`,
+        [req.session.user_id]
+      );
+      res.json(rows);
+    } catch (err) {
+      res.status(500).json({ error: 'DB error' });
+    }
+  });
+
+  module.exports = router;
