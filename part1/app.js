@@ -55,7 +55,7 @@ app.get("/api/dogs", async (req, res) => {
     }
 });
 
-// Return all open walk requests, including the dog name, requested time, location, and owner's username.
+// Return all open walk requests, including dog name, requested time, location, and owner username.
 app.get("/api/walkrequests/open", async (req, res) => {
     try {
         const [rows] = await db.query(
