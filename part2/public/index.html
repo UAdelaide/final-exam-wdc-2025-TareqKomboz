@@ -44,18 +44,19 @@
             <th scope="col">Dog ID</th>
             <th scope="col">Name</th>
             <th scope="col">Size</th>
-            <th scope="col">Owner&nbsp;ID</th>
+            <th scope="col">Owner ID</th>
             <th scope="col">Photo</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="d in dogs" :key="d.dog_id">
-            <td style="width:120px">
-              <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
-            </td>
+            <td>{{ d.id }}</td>
             <td>{{ d.name }}</td>
             <td>{{ d.size }}</td>
             <td>{{ d.owner_id }}</td>
+            <td style="width:120px">
+              <img :src="d.photo" :alt="d.name" class="img-fluid rounded">
+            </td>
           </tr>
         </tbody>
       </table>
