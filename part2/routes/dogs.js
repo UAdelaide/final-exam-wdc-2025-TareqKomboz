@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
-const auth = require('../middleware/auth'); // session check
 
 // GET /api/dogs all dogs for the logged-in owner
 router.get('/api/dogs', auth, async (req, res) => {
