@@ -89,7 +89,10 @@
 
           } catch (_) {
             /* ignore silently on landing page */
-    }
+          }
+        },
+
+
         async login () {
           try {
             const res = await fetch('/api/users/login', {
