@@ -58,7 +58,10 @@
             if (!res.ok) throw new Error('Could not load user');
             const u = await res.json();
             currentUserId.value = u.id;
-            
+            return u.id;
+          } catch (err) {
+            error.value = err.message;
+            throw err
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
